@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+
+<style>
+body { margin:0; font-family:Arial; background:#f4f4f4; }
+
+/* NAVBAR GLASS */
+.skills-section {
+  background: #fff; /* พื้นขาว */
+  color: #000;
+  padding: 30px 20px; /* ลดความสูง */
+  text-align: left;
+}
+
+.skills-section {
+  background: #fff;
+  padding: 40px 20px;
+  margin-top: 60px; /* 🔥 อันนี้ทำให้ห่าง */
+}
+
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 🔥 จัดกลาง */
+  gap: 15px;
+}
+.skill {
+  padding: 8px 18px; /* เล็กลง */
+  border-radius: 25px;
+  border: 2px solid #ff4da6;
+  color: #ff4da6;
+  font-size: 14px; /* เล็กลง */
+  transition: 0.3s;
+  box-shadow: 0 0 6px rgba(255,77,166,0.3);
+}
+
+.skill:hover {
+  background: #ff4da6;
+  color: #fff;
+  box-shadow: 0 0 12px #ff4da6;
+  transform: scale(1.05);
+}
+
+header {
+  position:sticky; top:0;
+  background: rgba(253, 169, 204, 0.836);
+  backdrop-filter: blur(12px);
+  color:white;
+  display:flex; justify-content:space-between; align-items:center;
+  padding:15px 20px;
+}
+
+nav a {
+  color:white; margin:0 10px; text-decoration:none;
+  position:relative; padding:5px;
+}
+
+nav a::after {
+  content:"";
+  position:absolute; bottom:-5px; left:0;
+  width:0%; height:3px;
+  background:#fc1fd7;
+  box-shadow:0 0 8px #fc1fd7;
+  transition:0.3s;
+}
+
+nav a.active::after, nav a:hover::after {
+  width:100%;
+}
+
+/* PAGE SYSTEM */
+.page {
+  width: 100%;
+  padding-top: 80px;
+  display: none;
+}
+
+.page.active {
+  display: block;
+}
+
+.about-text {
+  max-width: 700px;
+  margin: 20px auto 40px auto;
+  text-align: center;
+  line-height: 1.8;
+  font-size: 16px;
+}
+.container { text-align:center; padding:40px; }
+
+/* CARD */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.card {
+  width:260px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border-radius:15px;
+  overflow:hidden;
+  transition:0.4s;
+  cursor:pointer;
+}
+
+.card:hover {
+  transform:translateY(-10px) scale(1.05);
+  box-shadow:0 20px 40px rgba(0,0,0,0.2);
+}
+
+.card img {
+  width:100%; height:150px; object-fit:cover;
+  transition:0.4s;
+}
+
+.card:hover img { transform:scale(1.1); }
+
+.card p { padding:10px; }
+.home-container {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #ffd6ec, #ffeaf5);
+  min-height: 100vh;
+}
+
+/* หัวข้อ */
+.home-container h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.home-container h2 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.home-container h2 span {
+  color: #ff4da6;
+}
+
+/* ตำแหน่ง */
+.role {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* คำอธิบาย */
+.desc {
+  max-width: 500px;
+  margin: auto;
+  line-height: 1.6;
+  color: #444;
+}
+
+/* ปุ่ม */
+.home-container button {
+  margin-top: 30px;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 25px;
+  background: #ff4da6;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.home-container button:hover {
+  background: #e60073;
+  transform: scale(1.05);
+}
+.contact-card {
+  max-width: 700px;
+  margin: 80px auto;
+  padding: 40px;
+  border-radius: 20px;
+
+  background: linear-gradient(135deg, #f3eded, #f7f3f3);
+  color: rgb(20, 19, 19);
+
+  box-shadow: 
+    0 0 0 2px rgba(241, 35, 149, 0.966),
+    0 10px 40px rgba(255, 255, 255, 0.986);
+
+  position: relative;
+}
+
+/* ขอบเรืองซ้าย */
+.contact-card::before {
+  content: \"\";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 80%;
+  border-radius: 20px 0 0 20px;
+background: linear-gradient(to bottom, #ff4da6, #ff1493);
+box-shadow: 0 0 15px #ff4da6;
+}
+
+.contact-card p {
+  font-size: 20px;
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+/* ตัวหนา label */
+.contact-card b {
+  font-weight: bold;
+}
+button {
+  box-shadow: 0 0 15px #ff4da6;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px #ff4da6;
+}
+.home-container {
+  background: linear-gradient(-45deg, #ffd6ec, #ffeaf5, #ffcce6, #ffe6f2);
+  background-size: 400% 400%;
+  animation: gradientBG 8s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% }
+  50% { background-position: 100% }
+  100% { background-position: 0% }
+}
+.home-container h2 span {
+  color: #ff4da6;
+  text-shadow: 0 0 10px #ff4da6;
+}
+.card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>My Portfolio</h2>
+  <nav>
+    <a class="tab active" data-page="home">แนะนำตัว</a>
+    <a class="tab" data-page="about">เกี่ยวกับฉัน</a>
+    <a class="tab" data-page="portfolio">ผลงาน</a>
+    <a class="tab" data-page="activities">กิจกรรม</a>
+    <a class="tab" data-page="certificates">เกียรติบัตร</a>
+  </nav>
+</header>
+
+<!-- HOME -->
+<div class="page active" id="home">
+  <div class="home-container">
+
+    <h1>สวัสดีค่ะ</h1>
+
+   <h2>ฉันชื่อ <span id="typing"></span></h2>
+
+    <p class="role">UX/UI Designer</p>
+
+    <p class="desc">
+      สนใจการออกแบบประสบการณ์ผู้ใช้ (UX/UI) และการพัฒนาเว็บไซต์
+      มุ่งเน้นการสร้างงานที่ใช้งานง่าย สวยงาม และตอบโจทย์ผู้ใช้งาน
+    </p>
+
+    <button onclick="document.querySelector('[data-page=about]').click()">
+    เกี่ยวกับฉัน
+    </button>
+
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="about">
+  <div class="skills-section">
+
+    <h1>เกี่ยวกับฉัน</h1>
+    <img src="profile.jpg" style="
+  width:700px;
+  max-width:100%;
+  display:block;
+  margin:auto;
+">
+   <div class="about-text">
+  <p>
+    UX/UI Designer สวัสดีค่ะ ดิฉันนางสาว จารุชา ทองร้อยยศ 
+    กำลังศึกษาคณะศิลปศาสตร์และวิทยาศาสตร์ 
+    สาขาเทคโนโลยีสารสนเทศ ปี 3 
+    มหาวิทยาลัยเกษตรศาสตร์ วิทยาเขตกำแพงแสน
+  </p>
+</div>
+<div class="contact-card">
+  <p><b>E-mail:</b> jarucha.aim@gmail.com</p>
+  <p><b>Number:</b> 063-1952693</p>
+  <p><b>LINE:</b> aaim254712</p>
+  <p><b>FACEBOOK:</b> Jarucha Thongroiyod </p>
+  <p><b>GITHUB:</b> https://github.com/charucha11</p>
+</div>
+
+
+    <div class="skills-section">
+  <h1>ทักษะที่เชี่ยวชาญ</h1>
+
+  <div class="skills-container">
+    <span class="skill">Figma</span>
+    <span class="skill">UX</span>
+    <span class="skill">UI Design</span>
+    <span class="skill">HTML/CSS/JS</span>
+    <span class="skill">Python</span>
+    <span class="skill">Canva</span>
+    <span class="skill">Word</span>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="page" id="portfolio">
+  <div class="container">
+    <h1>ผลงานของฉัน</h1>
+    <div class="card-container">
+     <div class="card">
+  <a href="project1.html">
+    <img src="https://bizidea.co.th/uploads/article/66ea714498312.jpg">
+    <p><b>Figma</b><br>ออกแบบ UI ด้วย Figma</p>
+  </a>
+</div>
+
+<div class="card">
+  <a href="project2.html">
+    <img src="Iot.jpg">
+    <p><b>Iot</b><br>Project ลานจอดรถแสดงผลบน firebase</p>
+  </a>
+</div>
+
+<div class="card">
+  <a href="project3.html">
+    <img src="Ai.jpg">
+    <p><b>Project</b><br>AI แยกหน้าตาการ์ตูน</p>
+  </a>
+</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ACTIVITIES -->
+<div class="page" id="activities">
+  <div class="container">
+    <h1>กิจกรรม</h1>
+    
+    <div class="card-container">
+      
+      <div class="card">
+        <img src="อบรม1.jpg">
+        <img src="อรม2.jpg">
+        <p><b>ได้ร่วมกิจกรรมอบรมความปลอดภัยทางไซเบอร์</b><br>ได้รับความรู้เกี่ยวกับความปลอดภัย</p>
+      </div>
+
+      <div class="card">
+        <img src="รับน้อง.jpg">
+        <p><b>กิจกรรมรับน้อง IT</b><br>ได้สร้างสัมพันธ์และร่วมกิจกรรมรุ่นน้อง</p>
+      </div>
+
+      <div class="card">
+        <img src="ดูงาน it.jpg">
+        <p><b>กิจกรรมดูงานบริษัท INET</b><br>ได้เรียนรู้การทำงานของบริษัท</p>
+      </div>
+
+      <div class="card">
+        <img src="ดูงาน.jpg">
+        <p><b>ศึกษาดูงาน</b><br>ได้รู้เกี่ยวกับระบบ IOT ที่ฟาร์มแกะ จ.สระบุรี</p>
+      </div>
+      
+    </div>
+  </div>
+</div>
+<!-- CERT -->
+<div class="page" id="certificates">
+  <div class="container">
+    <h1>เกียรติบัตร (Certificate)</h1>
+    
+    <div class="card-container">
+      
+      <div class="card">
+        <a href="https://www.hackerrank.com/certificates/06bba039e277" target="_blank">
+          <img src="S__58613763_0.jpg">
+          <p><b>Java Script</b><br>คลิกเพื่อดูรายละเอียด</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="https://www.hackerrank.com/certificates/8751a3e7dc64" target="_blank">
+          <img src="S__58613764_0.jpg">
+          <p><b>Java Script</b><br>คลิกเพื่อดูรายละเอียด</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="https://www.hackerrank.com/certificates/5c0707feb899" target="_blank">
+          <img src="S__58613765_0.jpg">
+          <p><b>Java Script</b><br>คลิกเพื่อดูรายละเอียด</p>
+        </a>
+      </div>
+
+      <div class="card">
+        <a href="https://www.hackerrank.com/certificates/9ecb159622fe" target="_blank">
+          <img src="S__58613766_0.jpg">
+          <p><b>Java Script</b><br>คลิกเพื่อดูรายละเอียด</p>
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    
+
+<script>
+const tabs = document.querySelectorAll('.tab');
+const pages = document.querySelectorAll('.page');
+
+tabs.forEach(tab => {
+  tab.onclick = () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+
+    const target = tab.dataset.page;
+
+    pages.forEach(p => p.classList.remove('active'));
+
+    setTimeout(() => {
+      document.getElementById(target).classList.add('active');
+    }, 100);
+  }
+});
+
+const text = "จารุชา ทองร้อยยศ";
+let i = 0;
+
+function typeEffect() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeEffect, 80);
+  }
+}
+typeEffect();
+</script>
+
+
+</body>
+</html>
