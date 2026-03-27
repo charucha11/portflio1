@@ -113,13 +113,17 @@ nav a.active::after, nav a:hover::after {
   box-shadow:0 20px 40px rgba(0,0,0,0.2);
 }
 
-.card img {
-  width:100%; height:150px; object-fit:cover;
-  transition:0.4s;
+.card img, .card video {
+  width: 100%; 
+  height: 150px; 
+  object-fit: cover;
+  transition: 0.4s;
+  display: block;
 }
 
-.card:hover img { transform:scale(1.1); }
-
+.card:hover img, .card:hover video { 
+  transform: scale(1.1); 
+}
 .card p { padding:10px; }
 .home-container {
   text-align: center;
@@ -339,9 +343,9 @@ button:hover {
 </div>
 
 <div class="card">
-  <a href="project2.html">
-    <img src="Iot.jpg">
-    <p><b>Iot</b><br>Project ลานจอดรถแสดงผลบน firebase</p>
+  <a href="project2.html" style="text-decoration: none; color: inherit; display: block;">
+    <video src="796287429.669539.mp4" autoplay loop muted playsinline></video>
+    <p><b>Iot</b><br>Project ลานจอดรถแสดงผลบน firebase <br><span style="font-size: 12px; color: #ff4da6;">(▶ คลิกเพื่อดูรายละเอียด)</span></p>
   </a>
 </div>
 
@@ -349,6 +353,13 @@ button:hover {
   <a href="project3.html">
     <img src="Ai.jpg">
     <p><b>Project</b><br>AI แยกหน้าตาการ์ตูน</p>
+  </a>
+</div>
+</div>
+<div class="card">
+  <a href="project4.html">
+    <img src="figjam.jpg">
+    <p><b> figjam</b><br>จองห้องพัก</p>
   </a>
 </div>
       </div>
@@ -404,24 +415,28 @@ button:hover {
       <div class="card">
         <a href="https://www.hackerrank.com/certificates/8751a3e7dc64" target="_blank">
           <img src="S__58613764_0.jpg">
-          <p><b>Java Script</b><br>คลิกเพื่อดูรายละเอียด</p>
+          <p><b>Css </b><br>คลิกเพื่อดูรายละเอียด</p>
         </a>
       </div>
 
       <div class="card">
         <a href="https://www.hackerrank.com/certificates/5c0707feb899" target="_blank">
           <img src="S__58613765_0.jpg">
-          <p><b>Java Script</b><br>คลิกเพื่อดูรายละเอียด</p>
+          <p><b>Rest</b><br>คลิกเพื่อดูรายละเอียด</p>
         </a>
       </div>
 
       <div class="card">
         <a href="https://www.hackerrank.com/certificates/9ecb159622fe" target="_blank">
           <img src="S__58613766_0.jpg">
-          <p><b>Java Script</b><br>คลิกเพื่อดูรายละเอียด</p>
+          <p><b>SQL</b><br>คลิกเพื่อดูรายละเอียด</p>
         </a>
       </div>
-      
+      <div class="card">
+          <img src="S__58712067.jpg">
+          <p><b>เข้าร่วมอบรม</b><br></p>
+        </a>
+      </div>
     </div>
   </div>
 </div>
