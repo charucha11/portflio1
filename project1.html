@@ -5,23 +5,36 @@
 <title>Figma Project</title>
 <style>
 body {
-  font-family: Arial;
-  text-align: center;
-  padding: 50px;
+ font-family: Arial;
+ text-align: center;
+ padding: 50px;
 }
 
 img {
-  width: 300px;
-  border-radius: 15px;
+ width: 300px;
+ border-radius: 15px;
 }
 
-button {
-  margin-top: 20px;
-  padding: 10px 20px;
-  border: none;
-  background: #ff4da6;
-  color: white;
+/* ปรับแต่งปุ่มและลิงก์ให้สวยงามและเป็นสไตล์เดียวกัน */
+button, .figma-link {
+ margin-top: 20px;
+ padding: 10px 20px;
+ border: none;
+ background: #ff4da6;
+ color: white;
   border-radius: 10px;
+ cursor: pointer;
+ font-size: 16px;
+  text-decoration: none; /* ลบเส้นใต้ของลิงก์ออก */
+  display: inline-block; /* ให้จัดเรียงแนวนอนได้ */
+  margin: 10px 5px; /* เว้นระยะห่างระหว่างปุ่ม */
+  transition: 0.3s;
+}
+
+/* เพิ่มเอฟเฟกต์ตอนเอาเมาส์ชี้ */
+button:hover, .figma-link:hover {
+  background: #e60073;
+  transform: scale(1.05);
 }
 </style>
 </head>
@@ -33,6 +46,8 @@ button {
 <img src="figma.jpg">
 
 <p>การได้ใช้ Figma ในการออกแบบ</p>
+
+<a href="https://www.figma.com/proto/3qkcVX7EJQZf3yzKow3tTD/Untitled?node-id=0-1&t=RLSvh9oycs3WB4zk-1" target="_blank" class="figma-link">🎨 เปิดดูใน Figma</a>
 
 <button onclick="history.back()">← กลับ</button>
 
